@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body onload="onBodyLoad()">
+    <div class="application-title">
+        <h1>Jumbld</h1>
+    </div>
+    <div class="difficulty-level">
+        <select id="selected-level">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+    </div>
+    <div class="score">
+        <h3>Score: <span id="points">0</span></h3>
+    </div>
+    <div class="jumbled-words">
+        <span id="jumbld-word"> p n l a e</span>
+    </div>
+     <div class="solution-box">
+         <input type="text" placeholder="Guess the word" id="answer">
+     </div>
+     <div class="action">
+         <button type="button" onclick="onSubmit()">Submit</button>
+         <button type="button" onclick="onCancel()">Cancel</button>
+     </div>
+    <script src="/script.js"></script>
+</body>
+</html>
