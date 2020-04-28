@@ -1,0 +1,62 @@
+.application-title{
+    text-align: center;
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.center {
+    margin: auto;
+    width: 30%;
+    border: 3px solid rgb(245, 75, 69);
+    padding: 10px;
+    background-color: rgb(224, 119, 115);
+    border-radius: 4px;
+  }
+  .difficulty-level{
+      text-shadow: aliceblue;
+      color: black; 
+     cursor: pointer; 
+  }
+  #selected-level{
+    position: relative; 
+    display: block; 
+    width: 10em; 
+    overflow: hidden; 
+    border-radius: .25em; 
+    padding:7px;    
+}
+.score{
+    margin-top: 5px;
+    font-size: medium;
+    font-weight: 800;
+    text-shadow: black;
+
+}
+.row{
+    content: "";
+}
+.column {
+    float: left;
+    width: 50%;
+}
+.jumbled-words{
+    margin-top: 40px;
+    margin-bottom: 6px;
+   text-align:center;
+   font-weight: 600;
+}
+input[type=text] {
+    text-align: center;
+    width: 75%;
+    padding: 12px 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .action{
+      color: black;
+      text-align: center;
+      text-decoration: aliceblue;
+  }
