@@ -88,7 +88,7 @@ el_select_level_qs.addEventListener('change',(event) => {
 
 function onBodyLoad()
 { 
-    document.getElementById("answer").innerText='';
+    document.getElementById("answer").value='';
      random=Math.floor(Math.random()*dictionary[selected_level].length);
      el_jumbld_word.innerText=dictionary[selected_level][random].jumbld_word;
 }
