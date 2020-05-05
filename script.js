@@ -88,6 +88,7 @@ el_select_level_qs.addEventListener('change',(event) => {
 
 function onBodyLoad()
 { 
+    document.getElementById("answer").innerText='';
      random=Math.floor(Math.random()*dictionary[selected_level].length);
      el_jumbld_word.innerText=dictionary[selected_level][random].jumbld_word;
 }
@@ -97,6 +98,7 @@ function onSubmit()
     //check if the solution is correct
     if(dictionary[selected_level][random].solution.includes(solution.toLowerCase()))
     {  
+
     if(selected_level=="easy") 
         points+=1;
     else if(selected_level=="medium")
@@ -105,7 +107,8 @@ function onSubmit()
         points+=3;
     el_points.innerText=points;
     localStorage.setItem('point', points);
-    alert(`Hurray! You won ${points} point`)
+    alert(`Hurray! You won ${points} point`);
+    onBodyLoad();
     }
     else{
         alert("Sorry! Wrong answer");
