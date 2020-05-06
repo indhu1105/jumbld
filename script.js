@@ -1,4 +1,4 @@
-let point=localStorage.getItem("point");
+let points=localStorage.getItem("point");
 let random=0;
 let selected_level="easy";
 let el_points=document.getElementById("points");
@@ -77,8 +77,8 @@ dictionary["hard"]=[
     }
 ];
 
-if(!point) {
-    point = 0;
+if(points) {
+    points = 0;
   }
   
 el_select_level_qs.addEventListener('change',(event) => {
@@ -88,7 +88,7 @@ el_select_level_qs.addEventListener('change',(event) => {
 
 function onBodyLoad()
 { 
-    document.getElementById("answer").value='';
+     document.getElementById("answer").value='';
      random=Math.floor(Math.random()*dictionary[selected_level].length);
      el_jumbld_word.innerText=dictionary[selected_level][random].jumbld_word;
 }
@@ -99,16 +99,22 @@ function onSubmit()
     if(dictionary[selected_level][random].solution.includes(solution.toLowerCase()))
     {  
 
-    if(selected_level=="easy") 
+    if(selected_level=="easy") {
         points+=1;
-    else if(selected_level=="medium")
-        points+=2;
-    else
+        console.log(points);
+       }
+    else if(selected_level=="medium") {
         points+=3;
+        console.log(points);
+        }
+    else {
+        points+=5;
+        console.log(points);
+    }  
     el_points.innerText=points;
-    localStorage.setItem('point', points);
     alert(`Hurray! You won ${points} point`);
     onBodyLoad();
+    localStorage.setItem('point',points);
     }
     else{
         alert("Sorry! Wrong answer");
