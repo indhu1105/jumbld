@@ -1,10 +1,13 @@
 let points=localStorage.getItem("point");
 let random=0;
+let secs=0;
+let interval;
 let selected_level="easy";
 let el_points=document.getElementById("points");
 let el_select_level=document.getElementById("selected-level");
 let el_select_level_qs=document.querySelector("#selected-level");
 let el_jumbld_word=document.getElementById("jumbld-word");
+let el_timer=document.getElementById("remaining");
 let dictionary={};
 dictionary["easy"]=[
     {
@@ -86,8 +89,28 @@ el_select_level_qs.addEventListener('change',(event) => {
     onBodyLoad();
 })
 
+function setTimer()
+{
+    console.log("start");
+    secs=1*60 || 0;
+    interval=setInterval(function(){
+      el_timer.innerText=secs--;
+      if(secs==0)
+      {
+          closeTimer();
+      }  
+    },1000);
+}
+function closeTimer() {
+    console.log("close");
+    clearInterval(interval);
+    document.getElementById("time").innerHTML="Time Up";
+    onBodyLoad();
+}
 function onBodyLoad()
 { 
+    console.log("calling");
+    setTimer();
      document.getElementById("answer").value='';
      random=Math.floor(Math.random()*dictionary[selected_level].length);
      el_jumbld_word.innerText=dictionary[selected_level][random].jumbld_word;
@@ -101,18 +124,20 @@ function onSubmit()
 
     if(selected_level=="easy") {
         points+=1;
+        alert("Hurray! You won 1 point");
         console.log(points);
        }
     else if(selected_level=="medium") {
         points+=3;
+        alert("Hurray! You won 3 points");
         console.log(points);
         }
     else {
         points+=5;
+        alert("Hurray! You won 5 points");
         console.log(points);
     }  
     el_points.innerText=points;
-    alert(`Hurray! You won ${points} point`);
     onBodyLoad();
     localStorage.setItem('point',points);
     }
